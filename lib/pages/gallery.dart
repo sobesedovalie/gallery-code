@@ -103,7 +103,6 @@ class _GalleryPageState extends State<GalleryPage> {
                 );
               },
               getItemWidget: (itemTbl, index) {
-                print(itemTbl.toMap());
                 return MouseRegion(
                   cursor: SystemMouseCursors.click,
                   onEnter: (event) {

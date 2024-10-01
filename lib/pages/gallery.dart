@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../components/load_more/load_more.dart';
 import '../models/photo.dart';
 import 'error_show.dart';
+import 'view.dart';
 
 // страница для отображения галереи фото
 class GalleryPage extends StatefulWidget {
@@ -102,6 +103,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 );
               },
               getItemWidget: (itemTbl, index) {
+                print(itemTbl.toMap());
                 return MouseRegion(
                   cursor: SystemMouseCursors.click,
                   onEnter: (event) {
@@ -115,6 +117,13 @@ class _GalleryPageState extends State<GalleryPage> {
                     });
                   },
                   child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ViewPhotoPage(url: itemTbl.largeImageURL)));
+                    },
                     child: Stack(children: [
                       CachedNetworkImage(
                         width: double.infinity,
